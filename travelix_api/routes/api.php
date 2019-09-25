@@ -20,3 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/register','Api\UserAuthController@register');
 Route::post('/login','Api\UserAuthController@login');
+
+Route::get('/packages/index','Api\PackageController@index');
+Route::get('/packages/show/{id}','Api\PackageController@show');
+Route::post('/packages/add','Api\PackageController@add');
+Route::post('/packages/edit/{id}','Api\PackageController@update');
+Route::post('/packages/delete/{id}','Api\PackageController@destroy');
+Route::post('/packages/filter/location','Api\PackageController@showFilterDestination');
+
