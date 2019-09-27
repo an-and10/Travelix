@@ -25,7 +25,7 @@ class PackageController extends Controller
             $ImageSaveAsName = time() ."-packageImage." .
                 $Image->getClientOriginalExtension();
 
-            $upload_path = 'MainPackages/';
+            $upload_path = 'mainpackages/';
             $image_url =  $ImageSaveAsName;
         } else {
             $image_url = null;
