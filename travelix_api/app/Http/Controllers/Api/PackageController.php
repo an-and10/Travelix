@@ -20,14 +20,30 @@ class PackageController extends Controller
 
     public function add(Request $request)
     {
+        if ($request->file('package_header_image') != null) {
+            $Image = $request->file('package_header_image');
+            $ImageSaveAsName = time() ."-packageImage." .
+                $Image->getClientOriginalExtension();
+
+            $upload_path = 'MainPackages/';
+            $image_url =  $ImageSaveAsName;
+        } else {
+            $image_url = null;
+        }
+           
+
         $data = Package::create([
 
-            'package_name' => $request->name,
-            'package_location' => $request->location,
-            'package_price' => $request->price,
-            'package_type' => $request->type,
-            'package_details' => $request->details,
+            'package_name' => $request->package_name,
+            'package_location' => $request->package_location,
+            'package_price' => $request->package_price,
+            'package_type' => $request->package_type,
+            'package_details' => $request->package_details,
+            'package_header_image' => $image_url,
         ]);
+        if ($request->file('package_header_image') != null) {
+            $success = $Image->move($upload_path, $ImageSaveAsName);
+        }
 
         return response()->json([
 
