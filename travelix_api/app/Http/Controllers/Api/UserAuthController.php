@@ -10,6 +10,20 @@ class UserAuthController extends Controller
 {
     public function register(Request $request)
     {
+        if ($request->file('profile_img') != null) {
+            $Image = $request->file('profile_img');
+            $ImageSaveAsName = time() . "-UserProfileImage." .
+                $Image->getClientOriginalExtension();
+
+            $upload_path = 'UserProfileImage/';
+            $image_url =  $ImageSaveAsName;
+        } else {
+            $image_url = 'null';
+        }
+           
+
+        $request->profile_img = $image_url;
+   // dd($request->profile_img);
        $validateData = $request->validate([
 
             'name' => 'required',
@@ -17,10 +31,16 @@ class UserAuthController extends Controller
             'contact' => 'required|min:10',
             'email' => 'email|required|unique:users',
             'password' => 'required|confirmed',
+            'profile_img'  => 'required',
+
 
         ]);
+       // dd($validateData);
+   // $validateData = $request->all();
+       // dd("hello");
  
        $validateData['password'] = bcrypt($request->password);
+       $validateData['profile_img'] = $image_url;
 
        $user = User::create($validateData);
 

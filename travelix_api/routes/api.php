@@ -28,6 +28,7 @@ Route::post('/packages/edit/{id}','Api\PackageController@update');
 Route::post('/packages/delete/{id}','Api\PackageController@destroy');
 Route::post('/packages/filter/location','Api\PackageController@showFilterDestination');
 
+
 // Contact Route
 Route::post('/contact/add', 'Api\ContactController@add');
 
