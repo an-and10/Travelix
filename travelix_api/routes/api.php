@@ -23,11 +23,16 @@ Route::post('/login','Api\UserAuthController@login');
 Route::get('/me', 'Api\UserAuthController@mepoint');
 Route::get('/logout', 'Api\UserAuthController@out');
 
+Route::post('/admin/register','Api\Admin\AdminAuthController@register');
+ Route::post('/admin/login','Api\Admin\AdminAuthController@login');
+// Route::get('/me', 'Api\UserAuthController@mepoint');
+// Route::get('/logout', 'Api\UserAuthController@out');
+
 Route::get('/packages/index','Api\PackageController@index');
 Route::get('/packages/show/{id}','Api\PackageController@show');
 Route::post('/packages/add','Api\PackageController@add');
 Route::post('/packages/edit/{id}','Api\PackageController@update');
-Route::post('/packages/delete/{id}','Api\PackageController@destroy');
+Route::delete('/packages/delete/{id}','Api\PackageController@destroy');
 Route::post('/packages/filter/location','Api\PackageController@showFilterDestination');
 
 
