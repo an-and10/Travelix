@@ -20,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/register','Api\UserAuthController@register');
 Route::post('/login','Api\UserAuthController@login');
+Route::get('/me', 'Api\UserAuthController@mepoint');
+Route::get('/logout', 'Api\UserAuthController@out');
 
 Route::get('/packages/index','Api\PackageController@index');
 Route::get('/packages/show/{id}','Api\PackageController@show');

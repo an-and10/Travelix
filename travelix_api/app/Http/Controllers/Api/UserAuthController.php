@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserAuthController extends Controller
 {
@@ -28,10 +29,10 @@ class UserAuthController extends Controller
 
             'name' => 'required',
             'username' => 'required',
-            'contact' => 'required|min:10',
+            'contact' => 'required',
             'email' => 'email|required|unique:users',
             'password' => 'required|confirmed',
-            'profile_img'  => 'required',
+           // 'profile_img'  => 'required',
 
 
         ]);
@@ -40,14 +41,14 @@ class UserAuthController extends Controller
        // dd("hello");
  
        $validateData['password'] = bcrypt($request->password);
-       $validateData['profile_img'] = $image_url;
+      // $validateData['profile_img'] = $image_url;
 
        $user = User::create($validateData);
 
        $accessToken = $user->createToken('authToken')->accessToken;
 
        return response()->json([
-
+            'success' => true,
             'user' => $user,
             'access_token' => $accessToken
        ]);
@@ -72,13 +73,34 @@ class UserAuthController extends Controller
          $accessToken = auth()->user()->createToken('authToken')->accessToken;
 
          return response()->json([
-
+             'success' => true,
             'user' => auth()->user(),
-            'access_token' => $accessToken
-
+            'meta' => [
+                'token' => $accessToken,
+            ]
          ]);
 
     }
+
+    public function mepoint()
+    {
+        return response()->json([
+            'success' => true,
+           
+            'data' =>Auth::guard('api')->user(), 
+           
+        ]);
+     
+    }
+
+    public function out()
+    {
+        Auth::logout();
+        return response()->json([
+            'success' => true,
+        ]);
+    }
+
 
 
 }

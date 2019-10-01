@@ -33,7 +33,6 @@ class PackageController extends Controller
            
 
         $data = Package::create([
-
             'package_name' => $request->package_name,
             'package_location' => $request->package_location,
             'package_price' => $request->package_price,
