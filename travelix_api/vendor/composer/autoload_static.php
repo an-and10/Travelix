@@ -499,6 +499,7 @@ class ComposerStaticInitb84ba127a20d810ad3e823c85f38d088
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Api\\Admin\\AdminAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/Admin/AdminAuthController.php',
         'App\\Http\\Controllers\\Api\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ContactController.php',
         'App\\Http\\Controllers\\Api\\PackageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/PackageController.php',
         'App\\Http\\Controllers\\Api\\UserAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/UserAuthController.php',
@@ -519,6 +520,7 @@ class ComposerStaticInitb84ba127a20d810ad3e823c85f38d088
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',
         'App\\Models\\package' => __DIR__ . '/../..' . '/app/Models/Package.php',
+        'App\\PackageImage' => __DIR__ . '/../..' . '/app/PackageImage.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
