@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Auth;
 class UserAuthController extends Controller
 {
     use HasApiTokens;
+
+    public function index()
+    {
+        return User::paginate(10);
+
+    }
     
     public function register(Request $request)
     {
@@ -84,6 +90,46 @@ class UserAuthController extends Controller
          ]);
 
     }
+
+    public function editUser($id)
+    {
+        return User::where('id', $id)->first();
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = User::where('id', $id)->update([
+
+            'name' => $request->name,
+            'email' => $request->email,
+            'contact' => $request->contact,
+            'password' => $request->password,
+           
+        ]);
+
+        return response()->json([
+
+            'success' => true,
+           
+
+        ]);
+        
+    }
+    public function destroy($id)
+    {
+         User::where('id', $id)->delete();
+        return response()->json([
+
+            'success' => true,
+
+
+        ]);
+
+    }
+
+
+
+
 
     public function mepoint()
     {

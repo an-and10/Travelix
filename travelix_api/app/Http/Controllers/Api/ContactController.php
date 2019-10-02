@@ -16,6 +16,7 @@ class ContactController extends Controller
             'email' => $request->email,
             'subject' => $request->subject,
             'message' => $request->message,
+           
             //'package_details' => $request->details,
         ]);
 
@@ -25,4 +26,43 @@ class ContactController extends Controller
             'data' => $data,
         ]);
     }
+
+    public function index()
+    {
+        return Contact::all();
+    }
+
+    public function update(Request $request, $id)
+    {
+        Contact::where('id', $id)->update([
+
+            'status' => $request->status,
+         
+
+        ]);
+
+        return response()->json([
+
+            'success' => true,
+
+
+        ]);
+    }
+    public function destroy($id)
+    {
+        Contact::where('id', $id)->delete();
+        return response()->json([
+
+            'success' => true,
+
+
+        ]);
+    }
+
+
+
+
+
+
+   
 }
