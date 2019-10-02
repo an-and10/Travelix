@@ -26,8 +26,8 @@ class UserAuthController extends Controller
         }
            
 
-        $request->profile_img = $image_url;
-   // dd($request->profile_img);
+       $request->profile_img = $image_url;
+  
        $validateData = $request->validate([
 
             'name' => 'required',
@@ -35,16 +35,11 @@ class UserAuthController extends Controller
             'contact' => 'required',
             'email' => 'email|required|unique:users',
             'password' => 'required|confirmed',
-           // 'profile_img'  => 'required',
-
-
+         
         ]);
-       // dd($validateData);
-   // $validateData = $request->all();
-       // dd("hello");
+   
  
        $validateData['password'] = bcrypt($request->password);
-      // $validateData['profile_img'] = $image_url;
 
        $user = User::create($validateData);
 

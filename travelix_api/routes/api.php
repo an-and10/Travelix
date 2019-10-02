@@ -31,6 +31,8 @@ Route::get('/admin/logout', 'Api\Admin\AdminAuthController@out');
 Route::get('/packages/index','Api\PackageController@index');
 Route::get('/packages/show/{id}','Api\PackageController@show');
 Route::post('/packages/add','Api\PackageController@add');
+Route::post('/packages/addheaderimage/{id}','Api\PackageController@addHeaderImage');
+Route::post('/packages/addmoreimage/{id}','Api\PackageController@addMoreImage');
 Route::post('/packages/edit/{id}','Api\PackageController@update');
 Route::delete('/packages/delete/{id}','Api\PackageController@destroy');
 Route::post('/packages/filter/location','Api\PackageController@showFilterDestination');
