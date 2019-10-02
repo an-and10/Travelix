@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use App\User;
 use Illuminate\Http\Request;
+use Laravel\Passport\HasApiTokens;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class UserAuthController extends Controller
 {
+    use HasApiTokens;
+    
     public function register(Request $request)
     {
         if ($request->file('profile_img') != null) {
@@ -95,7 +98,8 @@ class UserAuthController extends Controller
 
     public function out()
     {
-        Auth::logout();
+        auth('api')->user()->token()->revoke();
+
         return response()->json([
             'success' => true,
         ]);

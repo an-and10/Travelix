@@ -6,9 +6,12 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\HasApiTokens;
 
 class AdminAuthController extends Controller
 {
+    use HasApiTokens;
+
     public function register(Request $request)
     {
         if ($request->file('profile_img') != null) {
@@ -59,23 +62,45 @@ class AdminAuthController extends Controller
 
         ]);
 
-        dd(auth()->user());
-
-        if(!auth()->attempt($loginData))
+        if(!auth('admin')->attempt($loginData))
         {
             return response(['message' => 'Invalid credentials']);
         }
 
-         $accessToken = auth()->user()->createToken('authToken')->accessToken;
+         $accessToken = auth('admin')->user()->createToken('authToken')->accessToken;
 
          return response()->json([
              'success' => true,
-            'user' => auth()->user(),
+            'user' => auth('admin')->user(),
             'meta' => [
                 'token' => $accessToken,
             ]
          ]);
 
     }
+
+    public function mepoint()
+    {
+        return response()->json([
+            'data' =>Auth::guard('admin-api')->user(), 
+           
+        ]);
+     
+    }
+
+    public function out()
+    {
+       
+            auth('admin-api')->user()->token()->revoke();
+
+            return response()->json([
+                'success' => true,
+            ]);
+       
+     
+        
+    }
+
+   
 
 }

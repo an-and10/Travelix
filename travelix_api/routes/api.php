@@ -24,9 +24,9 @@ Route::get('/me', 'Api\UserAuthController@mepoint');
 Route::get('/logout', 'Api\UserAuthController@out');
 
 Route::post('/admin/register','Api\Admin\AdminAuthController@register');
- Route::post('/admin/login','Api\Admin\AdminAuthController@login');
-// Route::get('/me', 'Api\UserAuthController@mepoint');
-// Route::get('/logout', 'Api\UserAuthController@out');
+Route::post('/admin/login','Api\Admin\AdminAuthController@login');
+Route::get('/admin/me', 'Api\Admin\AdminAuthController@mepoint');
+Route::get('/admin/logout', 'Api\Admin\AdminAuthController@out');
 
 Route::get('/packages/index','Api\PackageController@index');
 Route::get('/packages/show/{id}','Api\PackageController@show');
