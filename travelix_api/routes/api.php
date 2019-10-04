@@ -26,7 +26,7 @@ Route::get('/logout', 'Api\UserAuthController@out');
 Route::get('/edit/{id}', 'Api\UserAuthController@editUser');
 Route::post('/update/{id}', 'Api\UserAuthController@update');
 Route::delete('/delete/{id}', 'Api\UserAuthController@destroy');
-Route::get('/all', 'Api\UserAuthController@index');
+Route::get('/index', 'Api\UserAuthController@index');
 
 
 // Admin Api//
