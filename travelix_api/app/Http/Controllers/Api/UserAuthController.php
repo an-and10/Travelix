@@ -27,7 +27,7 @@ class UserAuthController extends Controller
             $upload_path = 'UserProfileImage/';
             $image_url =  $ImageSaveAsName;
         } else {
-            $image_url = 'null';
+            $image_url = 'default-profile.png';
         }
            
 
@@ -43,12 +43,14 @@ class UserAuthController extends Controller
          
         ]);
    
- 
+        $validateData['profile_img'] = $image_url;
        $validateData['password'] = bcrypt($request->password);
 
        $user = User::create($validateData);
 
        $accessToken = $user->createToken('authToken')->accessToken;
+        $Image->move($upload_path, $ImageSaveAsName);
+
 
        return response()->json([
             'success' => true,

@@ -31,7 +31,7 @@ class PackageController extends Controller
             'package_type' => $request->package_type,
             'package_details' => $request->package_details,
             'package_features' => $request->package_features,
-            'package_day' => $request->package_day,
+            'package_day' => $request->package_days,
             'package_nights' => $request->package_nights,
             'package_header_image' => $image_url,
         ]);
@@ -54,7 +54,7 @@ class PackageController extends Controller
             'package_type' => $request->type,
             'package_details' => $request->details,
             'package_features' => $request->features,
-            'package_day' => $request->day,
+            'package_day' => $request->days,
             'package_nights' => $request->nights,
         ]);
 

@@ -21,6 +21,7 @@ class CreatePackagesTable extends Migration
             $table->string('package_type')->nullable();
             $table->text('package_details');
             $table->string('package_header_image')->nullable();
+          
             $table->timestamps();
         });
     }

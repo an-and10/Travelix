@@ -13,6 +13,19 @@ use Illuminate\Http\Request;
 |
 */
 
+
+Route::group(
+    ['prefix' => '/auth'],
+    function () {
+
+        Route::post('/login', 'Api\AuthLoginController@loginRoute');
+        Route::get('/me', 'Api\AuthLoginController@check_user');
+        Route::get('/logout', 'Api\AuthLoginController@check_out');
+    
+    }
+
+);
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -20,7 +33,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // User Api//
 Route::post('/register','Api\UserAuthController@register');
-Route::post('/login','Api\UserAuthController@login');
+Route::get('/login','Api\UserAuthController@login');
 Route::get('/me', 'Api\UserAuthController@mepoint');
 Route::get('/logout', 'Api\UserAuthController@out');
 Route::get('/edit/{id}', 'Api\UserAuthController@editUser');
@@ -31,9 +44,11 @@ Route::get('/index', 'Api\UserAuthController@index');
 
 // Admin Api//
 Route::post('/admin/register','Api\Admin\AdminAuthController@register');
-Route::post('/admin/login','Api\Admin\AdminAuthController@login');
+Route::get('/admin/login','Api\Admin\AdminAuthController@login');
 Route::get('/admin/me', 'Api\Admin\AdminAuthController@mepoint');
 Route::get('/admin/logout', 'Api\Admin\AdminAuthController@out');
+Route::get('/admin/all','Api\Admin\AdminAuthController@index');
+
 
 
 
