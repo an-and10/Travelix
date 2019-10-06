@@ -78,4 +78,14 @@ Route::get('/subscribers/', 'Api\SubscribersController@index');
 Route::delete('/subscribers/delete/{id}', 'Api\SubscribersController@destroy');
 
 
+//Blogs Api//
+
+Route::post('/blog/show','Api\BlogController@show');
+Route::get('/blog/index','Api\BlogController@index');
+Route::get('/blog/cities','Api\BlogController@getCity');
+Route::post('/blog/addcity','Api\BlogController@addCity');
+Route::post('/blog/addplace','Api\BlogController@addPlace');
+
+
+
 
