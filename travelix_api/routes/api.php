@@ -87,5 +87,14 @@ Route::post('/blog/addcity','Api\BlogController@addCity');
 Route::post('/blog/addplace','Api\BlogController@addPlace');
 
 
+Route::post('/stories/add', 'Api\StoryController@addStories');
+Route::post('/stories/update/{id}', 'Api\StoryController@updateStatus');
+Route::delete('/stories/delete/{id}', 'Api\StoryController@deleteStories');
+
+Route::post('/stories/addLikes','Api\StoryController@addLikes');
+
+
+
+
 
 
