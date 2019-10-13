@@ -9,6 +9,16 @@ use App\Models\Story;
 
 class StoryController extends Controller
 {
+
+    public function index()
+    {
+        return Story::all();
+    }
+
+    public function getStoriesTop()
+    {
+        return Story::orderBy('id', 'desc')->take(3)->get();
+    }
    public function addStories(Request $request)
    {
         if ($request->file('image_1') != null) {
@@ -29,6 +39,7 @@ class StoryController extends Controller
            'image_1' => $image_url,
            'status' => 'Review',
             'likes' => 0,
+            'author' => $request->author,
            
            
        ]);

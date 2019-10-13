@@ -16,6 +16,7 @@ class CreateStoriesTable extends Migration
         Schema::create('stories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unique()->unsigned()->index();
+            $table->string('author');
             $table->string('package_name');
             $table->text('experience');
             $table->string('tour_date');

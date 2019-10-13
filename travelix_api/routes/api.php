@@ -88,6 +88,8 @@ Route::post('/blog/addplace','Api\BlogController@addPlace');
 
 
 Route::post('/stories/add', 'Api\StoryController@addStories');
+Route::get('/stories/index', 'Api\StoryController@index');
+Route::get('/stories/getLatest', 'Api\StoryController@getStoriesTop');
 Route::post('/stories/update/{id}', 'Api\StoryController@updateStatus');
 Route::delete('/stories/delete/{id}', 'Api\StoryController@deleteStories');
 
