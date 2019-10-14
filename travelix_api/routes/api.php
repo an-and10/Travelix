@@ -51,7 +51,6 @@ Route::get('/admin/all','Api\Admin\AdminAuthController@index');
 
 
 
-
 // Packages Api//
 Route::get('/packages/index','Api\PackageController@index');
 Route::get('/packages/show/{id}','Api\PackageController@show');

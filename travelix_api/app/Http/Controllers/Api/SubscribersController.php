@@ -12,15 +12,22 @@ class SubscribersController extends Controller
     {   
         
         $email = $request->email;
-        Subscribers:: create([
-            'email' => $email,
-            
-        ]);
-        return response()->json([
-            'success' => true,
-           
-           
-        ]);
+       if(Subscribers::where('email', $email)->exists()){
+            return response()->json([
+                'success' => false,
+            ]);
+       }else{
+           Subscribers::create([
+               'email'=> $email,
+           ]);
+
+            return response()->json([
+                'success' => true,
+
+
+            ]);
+
+       } 
     }
     public function index()
     {
