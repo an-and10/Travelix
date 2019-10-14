@@ -216,6 +216,11 @@ class PackageController extends Controller
             ], 200);
     }
 
+    public function showImage($id)
+    {
+        return PackageImage::where('package_id',$id)->get();
+    }
+
     
 }
 
