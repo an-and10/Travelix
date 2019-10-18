@@ -125,11 +125,48 @@ class StoryController extends Controller
                             );
 
                         }
+                 }
 
-    
+    public function getAllLikes()
+    {
+        $user =  AddLikes::all();
+        return response()->json(
+                    [
+                        'success' => true,
+                        'data' => $user,
+                    ],
+                    200
+            );
 
 
-   }
+    }
+    public function getlikes(Request $request, $s_id,$u_id)
+    {
+        
+        if(AddLikes::where(['stories_id' => $s_id,
+
+            'user_id' => $u_id])->exists())
+                {
+                   
+                         return response()->json(
+                        [
+                            'success' => false,
+                           
+                        ],
+                        200
+                     );
+                }else
+                        {
+                            return response()->json(
+                                [
+                                    'success' => true,
+                                    
+                                ],
+                                200
+                            );
+
+                        }
+    }
   
 
 
