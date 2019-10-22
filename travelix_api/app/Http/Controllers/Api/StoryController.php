@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Story;
+use App\Models\AddLikes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\AddLikes;
-use App\Models\Story;
+
 
 class StoryController extends Controller
 {
@@ -57,7 +58,10 @@ class StoryController extends Controller
 
 
 
+
+
    }
+
 
    public function updateStatus(Request $request, $id)
    {

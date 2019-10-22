@@ -95,6 +95,8 @@ Route::delete('/stories/delete/{id}', 'Api\StoryController@deleteStories');
 
 Route::post('/stories/addLikes','Api\StoryController@addLikes');
 Route::get('/stories/getlikes/{s_id}/{u_id}', 'Api\StoryController@getLikes');
+
+
     
 
 

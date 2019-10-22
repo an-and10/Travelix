@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Contact;
+use App\Mail\WelcomeMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -19,6 +21,8 @@ class ContactController extends Controller
            
             //'package_details' => $request->details,
         ]);
+
+         Mail::to($request->email)->send(new WelcomeMail($data));
 
         return response()->json([
 

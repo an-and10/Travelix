@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\User;
+use App\Mail\WelcomeMail;
 use Illuminate\Http\Request;
 use Laravel\Passport\HasApiTokens;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class UserAuthController extends Controller
 {
@@ -49,14 +51,19 @@ class UserAuthController extends Controller
        $user = User::create($validateData);
 
        $accessToken = $user->createToken('authToken')->accessToken;
-        $Image->move($upload_path, $ImageSaveAsName);
-
+       
+       //move($upload_path, $ImageSaveAsName);
+        
+       
 
        return response()->json([
             'success' => true,
             'user' => $user,
             'access_token' => $accessToken
        ]);
+
+ 
+
 
 
     }
