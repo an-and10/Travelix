@@ -108,10 +108,11 @@ class PackageController extends Controller
 
     public function addMoreImage(Request $request,$id)
     {
+        $count = 0;
         //************** image-1  */
         if ($request->file('image_1') != null) {
             $Image1 = $request->file('image_1');
-            $ImageSaveAsName1 = time() ."-packageImage." .
+            $ImageSaveAsName1 = time().$count++."-packageImage.".
                 $Image1->getClientOriginalExtension();
 
             $upload_path1 = 'mainpackages/';
@@ -124,7 +125,7 @@ class PackageController extends Controller
 
         if ($request->file('image_2') != null) {
             $Image2 = $request->file('image_2');
-            $ImageSaveAsName2 = time() ."-packageImage." .
+            $ImageSaveAsName2 = time() .$count++."-packageImage.".
                 $Image2->getClientOriginalExtension();
 
             $upload_path2 = 'mainpackages/';
@@ -137,7 +138,7 @@ class PackageController extends Controller
 
         if ($request->file('image_3') != null) {
             $Image3 = $request->file('image_3');
-            $ImageSaveAsName3 = time() ."-packageImage." .
+            $ImageSaveAsName3 = time().$count++ ."-packageImage." .
                 $Image3->getClientOriginalExtension();
 
             $upload_path3 = 'mainpackages/';
@@ -150,7 +151,7 @@ class PackageController extends Controller
 
         if ($request->file('image_4') != null) {
             $Image4 = $request->file('image_4');
-            $ImageSaveAsName4 = time() ."-packageImage." .
+            $ImageSaveAsName4 = time().$count++ ."-packageImage." .
                 $Image4->getClientOriginalExtension();
 
             $upload_path4 = 'mainpackages/';
@@ -163,7 +164,7 @@ class PackageController extends Controller
 
         if ($request->file('image_5') != null) {
             $Image5 = $request->file('image_5');
-            $ImageSaveAsName5 = time() ."-packageImage." .
+            $ImageSaveAsName5 = time().$count++ ."-packageImage." .
                 $Image5->getClientOriginalExtension();
 
             $upload_path5 = 'mainpackages/';
@@ -171,8 +172,9 @@ class PackageController extends Controller
         } else {
             $image_url5 = null;
         }
+       
 
-
+       
         //*************** add images */
 
         $data = PackageImage::create([
