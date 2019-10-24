@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Story;
 use App\Models\AddLikes;
+use App\Models\ActivityFeed;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -39,11 +40,17 @@ class StoryController extends Controller
            'tour_date' => $request->tour_date,
            'image_1' => $image_url,
            'status' => 'Review',
-            'likes' => 0,
-            'author' => $request->author,
-           
-           
+           'likes' => 0,
+           'author' => $request->author,     
        ]);
+
+       $str = "Have a look ".$request->author." has Shared his Story!!!";
+
+        ActivityFeed::create([
+            'title' => "User",
+            'description' => $str,
+        ]);
+        
         if ($request->file('image_1') != null) {
             $success = $Image->move($upload_path, $ImageSaveAsName);
         }

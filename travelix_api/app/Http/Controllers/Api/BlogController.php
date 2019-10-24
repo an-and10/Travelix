@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Blog;
 use App\Models\Destination;
+use App\Models\ActivityFeed;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -58,6 +59,13 @@ class BlogController extends Controller
         if ($request->file('destination_image') != null) {
             $success = $Image->move($upload_path, $ImageSaveAsName);
         }
+
+         $str = "A new City Blog of ".$request->name." has been added!!!";
+
+        ActivityFeed::create([
+            'title' => "Admin",
+            'description' => $str,
+        ]);
 
         return response()->json([
 

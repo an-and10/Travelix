@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Package;
+use App\Models\ActivityFeed;
 use App\Models\PackageImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -35,7 +36,13 @@ class PackageController extends Controller
             'package_nights' => $request->package_nights,
             'package_header_image' => $image_url,
         ]);
-       
+        
+        $str = "A new Package ".$request->package_name." of ".$request->package_location." has arrived!!!";
+
+        ActivityFeed::create([
+            'title' => "Admin",
+            'description' => $str,
+        ]);
 
         return response()->json([
 
