@@ -111,4 +111,9 @@ class BlogController extends Controller
 
         ], 200);
     }
+
+    public function getDestinationIndex()
+    {
+        return Destination::all();
+    }
 }

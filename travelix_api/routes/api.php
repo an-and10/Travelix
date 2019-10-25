@@ -69,6 +69,7 @@ Route::post('/contact/add', 'Api\ContactController@add');
 Route::get('/contact/index', 'Api\ContactController@index');
 Route::post('/contact/update/{id}', 'Api\ContactController@update');
 Route::delete('/contact/delete/{id}', 'Api\ContactController@destroy');
+Route::get('/contact/send_mail', 'Api\ContactController@send_mail');
 
 
 
@@ -85,6 +86,8 @@ Route::get('/blog/index','Api\BlogController@index');
 Route::get('/blog/cities','Api\BlogController@getCity');
 Route::post('/blog/addcity','Api\BlogController@addCity');
 Route::post('/blog/addplace','Api\BlogController@addPlace');
+Route::get('/blog/cities/index', 'Api\BlogController@getDestinationIndex');
+
 
 
 Route::post('/stories/add', 'Api\StoryController@addStories');
@@ -97,6 +100,9 @@ Route::post('/stories/addLikes','Api\StoryController@addLikes');
 Route::get('/stories/getlikes/{s_id}/{u_id}', 'Api\StoryController@getLikes');
 
 Route::get('/activityfeeds','Api\ActivityFeedController@index');
+Route::get('/notification', 'Api\ActivityFeedController@show_notification');
+Route::delete('/notification/delete', 'Api\ActivityFeedController@delete_notification');
+
 
 
     

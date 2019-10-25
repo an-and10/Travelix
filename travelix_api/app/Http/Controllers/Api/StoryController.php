@@ -7,7 +7,7 @@ use App\Models\AddLikes;
 use App\Models\ActivityFeed;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Notification;
 
 class StoryController extends Controller
 {
@@ -45,10 +45,16 @@ class StoryController extends Controller
        ]);
 
        $str = "Have a look ".$request->author." has Shared his Story!!!";
+       $notification_data =  $request->author . " has Shared his Story, Please review it";
 
         ActivityFeed::create([
             'title' => "User",
             'description' => $str,
+        ]);
+
+        Notification::create([
+            'title' => "User",
+            'action' => $notification_data,
         ]);
         
         if ($request->file('image_1') != null) {

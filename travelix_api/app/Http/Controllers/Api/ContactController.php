@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Contact;
 use App\Mail\WelcomeMail;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
@@ -20,6 +21,13 @@ class ContactController extends Controller
             'message' => $request->message,
            
             //'package_details' => $request->details,
+        ]);
+
+        $enquiry_data =  $request->name . " has request a enquiry on " . $request->subject;
+
+        Notification::create([
+            'title' => "Enquiry",
+            'action' => $enquiry_data,
         ]);
 
          Mail::to($request->email)->send(new WelcomeMail($data));
@@ -61,6 +69,11 @@ class ContactController extends Controller
 
 
         ]);
+    }
+
+    public function send_mail()
+    {
+        return view('welcome');
     }
 
 

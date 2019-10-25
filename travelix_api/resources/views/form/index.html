@@ -1,0 +1,46 @@
+<template>
+  <mdb-card>
+    <mdb-card-header class="pt-4 amy-crisp-gradient">
+      <mdb-card-title><strong>Reservation</strong></mdb-card-title>
+    </mdb-card-header>
+    <mdb-card-body>
+      <mdb-row>
+        <mdb-col>
+          <mdb-input label="name" icon="user"/>
+        </mdb-col>
+        <mdb-col>
+          <mdb-select multiple v-model="selectOptions" label="meal" icon="check-square"/>
+        </mdb-col>
+      </mdb-row>
+      <mdb-row>
+        <mdb-col>
+          <mdb-date-picker label="date" icon="calendar"/>
+        </mdb-col>
+        <mdb-col>
+          <mdb-time-picker label="time" icon="clock"/>
+        </mdb-col>
+      </mdb-row>
+      <mdb-row>
+        <mdb-col>
+          <mdb-input :min="2" :max="10" icon="user-friends" type="number" label="guests"/>
+        </mdb-col>
+        <mdb-col>
+          <mdb-autocomplete
+            icon="heart"
+            clearClass="fa-lg"
+            :data="food"
+            label="Food preferences"
+          />
+        </mdb-col>
+      </mdb-row>
+      <mdb-row>
+        <mdb-col>
+          <mdb-input type="textarea" label="special requests" icon="pen" :rows="2"/>
+        </mdb-col>
+      </mdb-row>
+    </mdb-card-body>
+    <mdb-card-footer class="white d-flex justify-content-end">
+      <mdb-btn gradient="amy-crisp" class="black-text" icon="paper-plane" rounded>Reserve table</mdb-btn>
+    </mdb-card-footer>
+  </mdb-card>
+</template>
