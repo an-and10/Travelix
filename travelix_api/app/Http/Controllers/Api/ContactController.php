@@ -13,12 +13,14 @@ class ContactController extends Controller
 {
     public function add(Request $request)
     {
+       $token =  rand(1000, 9999);
         $data = Contact::create([
 
             'name' => $request->name,
             'email' => $request->email,
             'subject' => $request->subject,
             'message' => $request->message,
+            'token' => $token,
            
             //'package_details' => $request->details,
         ]);

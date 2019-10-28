@@ -103,6 +103,10 @@ Route::get('/activityfeeds','Api\ActivityFeedController@index');
 Route::get('/notification', 'Api\ActivityFeedController@show_notification');
 Route::delete('/notification/delete', 'Api\ActivityFeedController@delete_notification');
 
+Route::post('/addBooking', 'Api\BookingController@add');
+Route::post('/cancelBooking/{id}', 'Api\BookingController@cancelBooking');
+Route::get('/booking/index', 'Api\BookingController@getIndex');
+
 
 
     
