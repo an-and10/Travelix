@@ -20,15 +20,13 @@ class AuthLoginController extends Controller
             $user['email'] = $request->email;
 
             return redirect()->action('Api\UserAuthController@login', $user);
-
-           
+  
         }
 
         if ($request->authentication == 'admin') {
             $user['email'] = $request->email;
 
             return redirect()->action('Api\Admin\AdminAuthController@login', $user);
-
          
         }
     }
