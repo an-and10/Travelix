@@ -499,6 +499,7 @@ class ComposerStaticInitb84ba127a20d810ad3e823c85f38d088
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Api\\ActivityFeedController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ActivityFeedController.php',
         'App\\Http\\Controllers\\Api\\Admin\\AdminAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/Admin/AdminAuthController.php',
         'App\\Http\\Controllers\\Api\\AuthLoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/AuthLoginController.php',
         'App\\Http\\Controllers\\Api\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/BlogController.php',
@@ -528,6 +529,7 @@ class ComposerStaticInitb84ba127a20d810ad3e823c85f38d088
         'App\\Models\\Blog' => __DIR__ . '/../..' . '/app/Models/Blog.php',
         'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',
         'App\\Models\\Destination' => __DIR__ . '/../..' . '/app/Models/Destination.php',
+        'App\\Models\\Notification' => __DIR__ . '/../..' . '/app/Models/Notification.php',
         'App\\Models\\PackageImage' => __DIR__ . '/../..' . '/app/Models/PackageImage.php',
         'App\\Models\\Stock' => __DIR__ . '/../..' . '/app/Models/Stock.php',
         'App\\Models\\Story' => __DIR__ . '/../..' . '/app/Models/Story.php',

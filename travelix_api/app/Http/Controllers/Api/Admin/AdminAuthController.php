@@ -73,13 +73,13 @@ class AdminAuthController extends Controller
 
         if(!auth('admin')->attempt($loginData))
         {
-            return response(['message' => 'Invalid credentials']);
+           return response()->json(['message' => 'Invalid credentials']);
         }
 
          $accessToken = auth('admin')->user()->createToken('authToken')->accessToken;
 
          return response()->json([
-             'success' => true,
+            'success' => true,
             'user' => auth('admin')->user(),
             'meta' => [
                 'token' => $accessToken,

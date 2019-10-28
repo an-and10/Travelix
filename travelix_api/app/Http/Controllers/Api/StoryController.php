@@ -23,8 +23,8 @@ class StoryController extends Controller
     }
    public function addStories(Request $request)
    {
-        if ($request->file('image_1') != null) {
-            $Image = $request->file('image_1');
+        if ($request->file('image') != null) {
+            $Image = $request->file('image');
             $ImageSaveAsName = time() . "-StoriesImage." .
                 $Image->getClientOriginalExtension();
 
@@ -38,6 +38,7 @@ class StoryController extends Controller
            'package_name' => $request->package_name,
            'experience' => $request->experience,
            'tour_date' => $request->tour_date,
+           'city' => $request->city,
            'image_1' => $image_url,
            'status' => 'Review',
            'likes' => 0,
@@ -57,7 +58,7 @@ class StoryController extends Controller
             'action' => $notification_data,
         ]);
         
-        if ($request->file('image_1') != null) {
+        if ($request->file('image') != null) {
             $success = $Image->move($upload_path, $ImageSaveAsName);
         }
         return response()->json(
