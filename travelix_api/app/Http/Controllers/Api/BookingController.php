@@ -24,6 +24,7 @@ class BookingController extends Controller
             'adult' => $request->adult,
             'children' => $request->children,
             'package_id' => $request->package_id, 
+            'package_name' => $request->package_name
                        
         ]);
 

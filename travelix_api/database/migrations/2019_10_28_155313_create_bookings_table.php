@@ -27,6 +27,7 @@ class CreateBookingsTable extends Migration
             $table->string('status')->default('Active');
             $table->string('email');
             $table->string('contact');
+            $table->string('package_name');
 
             $table->timestamps();
         });
