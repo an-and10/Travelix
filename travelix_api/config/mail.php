@@ -83,10 +83,8 @@ return [
     | connection. You may also set the "password" value below this one.
     |
     */
-
-    'username' => env('MAIL_USERNAME'),
-
-    'password' => env('MAIL_PASSWORD'),
+    'username' => "0fe2b1f4012bb4",
+    'password' => "6e4664a25e7201",
 
     /*
     |--------------------------------------------------------------------------
