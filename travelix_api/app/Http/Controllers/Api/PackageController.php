@@ -230,6 +230,11 @@ class PackageController extends Controller
         return PackageImage::where('package_id',$id)->get();
     }
 
+    public function trending()
+    {
+        return Package::all()->random(4);
+    }
+
     
 }
 

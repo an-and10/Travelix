@@ -61,6 +61,7 @@ Route::get('/packages/showimage/{id}','Api\PackageController@showImage');
 Route::post('/packages/edit/{id}','Api\PackageController@update');
 Route::delete('/packages/delete/{id}','Api\PackageController@destroy');
 Route::post('/packages/filter/location','Api\PackageController@showFilterDestination');
+Route::get('/trending','Api\PackageController@trending');
 
 
 
